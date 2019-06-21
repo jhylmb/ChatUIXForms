@@ -45,6 +45,7 @@ namespace ChatUIXForms.ViewModels
             Messages.Insert(0, new Message() { Text = "Oh My God!" });
             Messages.Insert(0, new Message() { Text = " No Problem" });
             Messages.Insert(0, new Message() { Text = "Hugs and Kisses" });
+            Messages.Insert(0, new Message() { Text = "이 새끼가 이거 아주...." });
 
             MessageAppearingCommand = new Command<Message>(OnMessageAppearing);
             MessageDisappearingCommand = new Command<Message>(OnMessageDisappearing);
@@ -54,6 +55,7 @@ namespace ChatUIXForms.ViewModels
                 if(!string.IsNullOrEmpty(TextToSend)){
                     Messages.Insert(0, new Message() { Text = TextToSend, User = App.User });
                     TextToSend = string.Empty;
+                    Console.WriteLine(TextToSend);
                 }
                
             });

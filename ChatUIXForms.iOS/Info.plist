@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>ChatUIXForms</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.crossgeeks.ChatUIXForms</string>
+	<string>com.airdoc.ChatUIXForms</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="ChatUIXForms.Views.ChatPage" 
@@ -30,6 +30,8 @@
                  ItemAppearingCommand="{Binding MessageAppearingCommand}"
                  ItemDisappearingCommand="{Binding MessageDisappearingCommand}">
          </controls:ExtendedListView>
+         
+         <!-- end and expand -->
          <Frame HorizontalOptions="EndAndExpand" 
                                  Margin="0,0,2,15"
                                  VerticalOptions="End"
@@ -61,7 +63,7 @@
                  BackgroundColor="LightGray"
                  Grid.Row="1"/>
         <partials:ChatInputBarView Grid.Row="2"
-                                   Margin="0,0,10,0"
+                                   Margin="0,0,0,0"
                                    x:Name="chatInput"/>
     </Grid>
 </ContentPage>

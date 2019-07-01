@@ -1,37 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="ChatUIXForms.Views.Partials.ChatInputBarView" 
              xmlns:controls="clr-namespace:ChatUIXForms.Controls">
-     <Grid RowSpacing="0" 
-           ColumnSpacing="0">
-               <Grid.RowDefinitions>
-                     <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-        <controls:ExtendedEditorControl x:Name="chatTextInput" 
-                 Text="{Binding TextToSend}" 
-                 Margin="1"  
-                 TextColor="Black" 
-                 Keyboard="Chat"  
-                 IsExpandable="true"
-                 HorizontalOptions="FillAndExpand" 
-                 PlaceholderColor="LightGray"
-                 Placeholder="Type your message here"
-                 Grid.Row="0" 
-                 Grid.Column="0" />
-        <Label Text="Send"
+        <Grid RowSpacing="0" 
+            ColumnSpacing="0">
+
+        <Grid.RowDefinitions>
+             <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <controls:ExtendedEditorControl 
+            x:Name="chatTextInput" 
+            Text="{Binding TextToSend}"
+            TextColor="Black" 
+            Keyboard="Chat"  
+            IsExpandable="true"
+            HorizontalOptions="FillAndExpand"
+            PlaceholderColor="Gray"
+            Placeholder="여기에 입력하세요"
+            Grid.Row="0" 
+            Grid.Column="0"/>
+        
+       <!--<Label Text="전송"
                Grid.Row="0"
                Grid.Column="1"
+               HorizontalOptions="CenterAndExpand"
                VerticalTextAlignment="Center">
             <Label.GestureRecognizers> 
                 <TapGestureRecognizer
                       Command="{Binding OnSendCommand}"
                       Tapped="Handle_Completed"/>
            </Label.GestureRecognizers>
-       </Label>
+       </Label>-->
+        
+        <Button x:Name="ghostButton"
+            Grid.Row="0" Grid.Column="1"
+            Text="전송" BackgroundColor="Red" TextColor="White"
+            HorizontalOptions="Fill"
+            VerticalOptions="End"
+            InputTransparent="true"
+            CornerRadius="0"/>
+
+        <controls:ExtendedEditorControl x:Name="ghostEditor"
+            Grid.Row="0" Grid.Column="1"
+            BackgroundColor="Transparent" Opacity="0.05"
+            Focused="Handle_Focused"/>
     </Grid>
 </ContentView>

@@ -25,6 +25,9 @@ namespace ChatUIXForms.Droid.Renderers
 
             if (Control != null)
             {
+                // https://stackoverflow.com/questions/48003093/xamarin-forms-hide-editor-underline
+                Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
+
                 if (initial)
                 {
                     originalBackground = Control.Background;

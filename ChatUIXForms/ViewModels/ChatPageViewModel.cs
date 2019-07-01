@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Input;
 using ChatUIXForms.Models;
 using Xamarin.Forms;
@@ -24,8 +25,8 @@ namespace ChatUIXForms.ViewModels
 
         public ChatPageViewModel()
         {
-            Messages.Insert(0,new Message() { Text = "Hi" });
-            Messages.Insert(0, new Message() { Text = "How are you?", User = App.User});
+            Messages.Insert(0, new Message() { Text = "Hi" });
+            Messages.Insert(0, new Message() { Text = "How are you?", User = App.User });
             Messages.Insert(0, new Message() { Text = "What's new?" });
             Messages.Insert(0, new Message() { Text = "How is your family", User = App.User });
             Messages.Insert(0, new Message() { Text = "How is your dog?", User = App.User });
@@ -36,7 +37,7 @@ namespace ChatUIXForms.ViewModels
             Messages.Insert(0, new Message() { Text = "Where I can find a good one?" });
             Messages.Insert(0, new Message() { Text = "Also I'm testing this chat" });
             Messages.Insert(0, new Message() { Text = "Oh My God!" });
-            Messages.Insert(0, new Message() { Text = " No Problem" , User = App.User});
+            Messages.Insert(0, new Message() { Text = " No Problem", User = App.User });
             Messages.Insert(0, new Message() { Text = "Hugs and Kisses", User = App.User });
             Messages.Insert(0, new Message() { Text = "When we are going to meet?" });
             Messages.Insert(0, new Message() { Text = "I want to buy a laptop" });
@@ -55,7 +56,6 @@ namespace ChatUIXForms.ViewModels
                 if(!string.IsNullOrEmpty(TextToSend)){
                     Messages.Insert(0, new Message() { Text = TextToSend, User = App.User });
                     TextToSend = string.Empty;
-                    Console.WriteLine(TextToSend);
                 }
                
             });
@@ -65,24 +65,27 @@ namespace ChatUIXForms.ViewModels
             {
                 if (LastMessageVisible)
                 {
-                    Messages.Insert(0, new Message(){ Text = "New message test" , User="Mario"});
+                    Messages.Insert(0, new Message(){ Text = $"New message {++dummyCount}", User="Mario"});
                 }
                 else
                 {
-                    DelayedMessages.Enqueue(new Message() { Text = "New message test" , User = "Mario"});
+                    DelayedMessages.Enqueue(new Message() { Text = $"delayed message {++dummyCount}" , User = "Mario"});
                     PendingMessageCount++;
                 }
                 return true;
             });
-
-           
            
         }
+
+        private int dummyCount = 0;
 
         void OnMessageAppearing(Message message)
         {
             var idx = Messages.IndexOf(message);
-            if (idx <= 6)
+
+            Debug.WriteLine($"{idx} appearing : {message.Text}");
+
+            if (idx <= 20)
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
@@ -100,7 +103,10 @@ namespace ChatUIXForms.ViewModels
         void OnMessageDisappearing(Message message)
         {
             var idx = Messages.IndexOf(message);
-            if (idx >= 6)
+
+            Debug.WriteLine($"\t{idx} disppearing : {message.Text}");
+
+            if (idx >= 20)
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
@@ -108,6 +114,7 @@ namespace ChatUIXForms.ViewModels
                     LastMessageVisible = false;
                 });
 
+                
             }
         }
 

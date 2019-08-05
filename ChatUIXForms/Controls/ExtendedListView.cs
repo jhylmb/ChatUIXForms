@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
@@ -6,6 +7,7 @@ using Xamarin.Forms;
 
 namespace ChatUIXForms.Controls
 {
+    [DesignTimeVisible(true)]
     public class ExtendedListView : ListView
     {
         public ExtendedListView() : this(ListViewCachingStrategy.RecycleElement)
@@ -68,6 +70,7 @@ namespace ChatUIXForms.Controls
 
         private void OnItemAppearing(object sender, ItemVisibilityEventArgs e)
         {
+
             if (ItemAppearingCommand != null)
             {
                 ItemAppearingCommand?.Execute(e.Item);

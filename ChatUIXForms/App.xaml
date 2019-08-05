@@ -1,7 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Application xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="ChatUIXForms.App">
+             x:Class="ChatUIXForms.App"
+             
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:Application.WindowSoftInputModeAdjust="Resize">
+             <!-- 
+
+                키보드 올라오면 툴바도 같이 올라가 버리는 문제 수정
+                https://xamgirl.com/adjusting-elements-when-keyboard-shows-in-xamarin-forms/ 
+
+            -->
     <Application.Resources>
     </Application.Resources>
 </Application>

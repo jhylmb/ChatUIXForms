@@ -4,27 +4,43 @@
              x:Class="ChatUIXForms.Views.Partials.ChatInputBarView" 
              xmlns:controls="clr-namespace:ChatUIXForms.Controls">
         <Grid RowSpacing="0" 
-            ColumnSpacing="0">
+            ColumnSpacing="0"
+              BackgroundColor="Green">
 
         <Grid.RowDefinitions>
              <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="4*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
+        <Button x:Name="plusButton"
+            Grid.Row="0" Grid.Column="0"
+            Text="+" 
+            FontSize="Large"
+            BackgroundColor="Purple" TextColor="White"
+            HorizontalOptions="Fill"
+            HeightRequest="{Binding Source={x:Reference chatTextInput}, Path=HeightRequest}"
+            CornerRadius="0"
+            VerticalOptions="CenterAndExpand"/>
+        
         <controls:ExtendedEditorControl 
             x:Name="chatTextInput" 
             Text="{Binding TextToSend}"
-            TextColor="Black" 
-            Keyboard="Chat"  
+            TextColor="Black"
+            FontSize="Medium"
+            Keyboard="Chat"
+            BackgroundColor="SkyBlue"
             IsExpandable="true"
             HorizontalOptions="FillAndExpand"
             PlaceholderColor="Gray"
             Placeholder="여기에 입력하세요"
             Grid.Row="0" 
-            Grid.Column="0"/>
+            Grid.Column="1"
+            VerticalOptions="Fill"
+             />
         
        <!--<Label Text="전송"
                Grid.Row="0"
@@ -39,15 +55,16 @@
        </Label>-->
         
         <Button x:Name="ghostButton"
-            Grid.Row="0" Grid.Column="1"
-            Text="전송" BackgroundColor="Red" TextColor="White"
+            Grid.Row="0" Grid.Column="2"
+            Text="전송" BackgroundColor="Red"
+            TextColor="White"
             HorizontalOptions="Fill"
-            VerticalOptions="End"
             InputTransparent="true"
             CornerRadius="0"/>
 
-        <controls:ExtendedEditorControl x:Name="ghostEditor"
-            Grid.Row="0" Grid.Column="1"
+        <Editor x:Name="ghostEditor"
+            Grid.Row="0" Grid.Column="2"
+            HorizontalOptions="Fill"
             BackgroundColor="Transparent" Opacity="0.05"
             Focused="Handle_Focused"/>
     </Grid>

@@ -1,8 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-          x:Class="ChatUIXForms.Views.Cells.IncomingViewCell">
-       <Frame BackgroundColor="Gray"
+          x:Class="ChatUIXForms.Views.Cells.IncomingViewCell"
+          xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          mc:Ignorable="d">
+       <Frame BackgroundColor="#EDEDED"
+              BorderColor="#D8D8D8"
+              Padding="10"
+              Margin="60,10,15,0"
+              HasShadow="false"
+              HorizontalOptions="StartAndExpand"
+              VerticalOptions="CenterAndExpand"
+              CornerRadius="8"
+              Rotation="180"
+              FlowDirection="LeftToRight">
+           <Label Text="{Binding Text}"
+                  d:Text="Hello world and this is the new world How do you feel? Im very excied!"
+                  TextColor="#4A4A4A"/>
+        </Frame>
+        <!--
+        <Frame BackgroundColor="Gray"
               Rotation="180"
               FlowDirection="LeftToRight"
               Padding="10"
@@ -12,4 +30,5 @@
            <Label Text="{Binding Text}" 
                   TextColor="White"/>
         </Frame>
+        -->
 </ViewCell>

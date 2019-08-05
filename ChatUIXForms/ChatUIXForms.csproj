@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="PropertyChanged.Fody" Version="3.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.540366" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -19,6 +19,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="MainPage.xaml.cs" />
+    <Compile Remove="Views\TutorialPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\.DS_Store" />

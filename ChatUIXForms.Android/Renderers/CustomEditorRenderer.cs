@@ -25,6 +25,7 @@ namespace ChatUIXForms.Droid.Renderers
 
             if (Control != null)
             {
+                // hide android default underline
                 // https://stackoverflow.com/questions/48003093/xamarin-forms-hide-editor-underline
                 Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
 
@@ -33,6 +34,8 @@ namespace ChatUIXForms.Droid.Renderers
                     originalBackground = Control.Background;
                     initial = false;
                 }
+
+                // expend limitation to 5 lines
                 Control.SetMaxLines(5);
 
             }

@@ -5,10 +5,10 @@ namespace ChatUIXForms.Controls
 {
     public class ExtendedEditorControl : Editor
     {
-        public static BindableProperty PlaceholderProperty
+        public new static BindableProperty PlaceholderProperty
           = BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(ExtendedEditorControl));
 
-        public static BindableProperty PlaceholderColorProperty
+        public new static BindableProperty PlaceholderColorProperty
            = BindableProperty.Create(nameof(PlaceholderColor), typeof(Color), typeof(ExtendedEditorControl), Color.LightGray);
 
         public static BindableProperty HasRoundedCornerProperty
@@ -28,13 +28,13 @@ namespace ChatUIXForms.Controls
             set { SetValue(HasRoundedCornerProperty, value); }
         }
 
-        public string Placeholder
+        public new string Placeholder
         {
             get { return (string)GetValue(PlaceholderProperty); }
             set { SetValue(PlaceholderProperty, value); }
         }
 
-        public Color PlaceholderColor
+        public new Color PlaceholderColor
         {
             get { return (Color)GetValue(PlaceholderColorProperty); }
             set { SetValue(PlaceholderColorProperty, value); }
@@ -54,8 +54,7 @@ namespace ChatUIXForms.Controls
         {
             if (IsExpandable)
                 InvalidateMeasure();
-
-
+                // VisualElement.InvalidateMeasure()
         }
 
     }

@@ -13,7 +13,8 @@ namespace ChatUIXForms
         {
             InitializeComponent();
 
-            MainPage = new ChatPage();
+            MainPage = new NavigationPage(new ChatPage());
+            //MainPage = new TutorialPage();
         }
 
         protected override void OnStart()

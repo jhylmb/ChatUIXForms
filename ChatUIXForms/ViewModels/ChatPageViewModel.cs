@@ -25,29 +25,59 @@ namespace ChatUIXForms.ViewModels
 
         public ChatPageViewModel()
         {
-            Messages.Insert(0, new Message() { Text = "Hi" });
-            Messages.Insert(0, new Message() { Text = "How are you?", User = App.User });
-            Messages.Insert(0, new Message() { Text = "What's new?" });
-            Messages.Insert(0, new Message() { Text = "How is your family", User = App.User });
-            Messages.Insert(0, new Message() { Text = "How is your dog?", User = App.User });
-            Messages.Insert(0, new Message() { Text = "How is your cat?", User = App.User });
-            Messages.Insert(0, new Message() { Text = "How is your sister?" });
-            Messages.Insert(0, new Message() { Text = "When we are going to meet?" });
-            Messages.Insert(0, new Message() { Text = "I want to buy a laptop" });
-            Messages.Insert(0, new Message() { Text = "Where I can find a good one?" });
-            Messages.Insert(0, new Message() { Text = "Also I'm testing this chat" });
-            Messages.Insert(0, new Message() { Text = "Oh My God!" });
-            Messages.Insert(0, new Message() { Text = " No Problem", User = App.User });
-            Messages.Insert(0, new Message() { Text = "Hugs and Kisses", User = App.User });
-            Messages.Insert(0, new Message() { Text = "When we are going to meet?" });
-            Messages.Insert(0, new Message() { Text = "I want to buy a laptop" });
-            Messages.Insert(0, new Message() { Text = "Where I can find a good one?" });
-            Messages.Insert(0, new Message() { Text = "Also I'm testing this chat" });
-            Messages.Insert(0, new Message() { Text = "Oh My God!" });
-            Messages.Insert(0, new Message() { Text = " No Problem" });
-            Messages.Insert(0, new Message() { Text = "Hugs and Kisses" });
-            Messages.Insert(0, new Message() { Text = "이 새끼가 이거 아주...." });
+            Messages.Insert(0, new Message() { Text = $"안녕하세요 링거입니다."});
 
+            Messages.Insert(0, new Message() { Text = $"제가 사이판에 있는데 애기가 아파서요", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"어제부터 음식도 못 먹고 열이 났는데\n어제 저녁부터는 토하더니", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"이제는 배가 아프다고 하는데", User = App.User });
+
+            Messages.Insert(0, new Message() { Text = $"사이판에 있으시고.. 아이가 많이 어린가요?" });
+
+            Messages.Insert(0, new Message() { Text = $"6살요", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"해열제도 먹으면 토해서 못 먹이는데", User = App.User });
+
+            Messages.Insert(0, new Message() { Text = $"배 아픈 양상이 어떠한가요? 지속적으로 아파하나요? 간간히 아파하나요? 아픈 위치는 배꼽 위인가요 아래인가요?", User = App.User });
+
+            Messages.Insert(0, new Message() { Text = $"배꼽쯤요", User = App.User });
+
+            Messages.Insert(0, new Message() { Text = $"그렇군요" });
+
+            Messages.Insert(0, new Message() { Text = $"상담이 종료되었습니다."});
+            Messages.Insert(0, new Message() { Text = @"<상담요약>
+CC> abdomen pain(3 hour ago)
+S & O> fever/chill -/-
+        nausea/vomiting/diarrhea +/-/-
+        epigastric pain +, burning sense
+        other symptom:dny
+        PMHx: HTN/DM -/+ Op Hx -
+        Medication: metformin
+        Drug allergy: none
+A>r/o acute gastritis
+  r/o GERD
+P>위장약(큐란)과 타이레놀을 복용하세요.증상이 악화되거나 열이 나거나 호전 없으면 병원 진료를 고려하세요."});
+
+
+            /*** Insert dummy datas 
+            
+            Messages.Insert(0, new Message() { Text = $"TestMessage 02", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 03" });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 04", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 05", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 06", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 08" });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 09" });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 10", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 11", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 12" });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 13" });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 14", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 15", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 16" });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 17" });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 18", User = App.User });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 19" });
+            Messages.Insert(0, new Message() { Text = $"TestMessage 20" });
+            ****/
             MessageAppearingCommand = new Command<Message>(OnMessageAppearing);
             MessageDisappearingCommand = new Command<Message>(OnMessageDisappearing);
 
@@ -61,31 +91,33 @@ namespace ChatUIXForms.ViewModels
             });
 
             //Code to simulate reveing a new message procces
-            Device.StartTimer(TimeSpan.FromSeconds(5), () =>
-            {
-                if (LastMessageVisible)
-                {
-                    Messages.Insert(0, new Message(){ Text = $"New message {++dummyCount}", User="Mario"});
-                }
-                else
-                {
-                    DelayedMessages.Enqueue(new Message() { Text = $"delayed message {++dummyCount}" , User = "Mario"});
-                    PendingMessageCount++;
-                }
-                return true;
-            });
+            //Device.StartTimer(TimeSpan.FromSeconds(5), () =>
+            //{
+            //    if (LastMessageVisible)
+            //    {
+            //        Messages.Insert(0, new Message(){ Text = $"New message {++dummyCount}", User="Mario"});
+            //    }
+            //    else
+            //    {
+            //        DelayedMessages.Enqueue(new Message() { Text = $"delayed message {++dummyCount}" , User = "Mario"});
+            //        PendingMessageCount++;
+            //    }
+
+            //    Debug.WriteLine($"------{DateTime.Now}------");
+            //    return true;
+            //});
            
         }
 
-        private int dummyCount = 0;
+        private int dummyCount;
 
         void OnMessageAppearing(Message message)
         {
             var idx = Messages.IndexOf(message);
 
-            Debug.WriteLine($"{idx} appearing : {message.Text}");
+            Debug.WriteLine($"{idx}/{Messages.Count} appearing : {message.Text}");
 
-            if (idx <= 20)
+            if (idx <= 5)
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
@@ -104,9 +136,10 @@ namespace ChatUIXForms.ViewModels
         {
             var idx = Messages.IndexOf(message);
 
-            Debug.WriteLine($"\t{idx} disppearing : {message.Text}");
+            
+            Debug.WriteLine($"\t{idx}/{Messages.Count} disppearing : {message.Text}");
 
-            if (idx >= 20)
+            if (idx >= 5)
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
